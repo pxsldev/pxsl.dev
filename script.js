@@ -144,7 +144,7 @@ const tag = document.querySelector(".tag");
 const roles = [
   "professional idiot • developer • terminal addict",
   "what is this again?",
-  "i made two spanner software",
+  "i made clanker",
   "clean code? never heard of her",
   "welcome to the space",
   "python • unity • c#",
@@ -155,6 +155,8 @@ const roles = [
   "what the hell is an api",
   "i put the 'pro' in 'programmer'",
   "your sentence of the day is...",
+  "WHAT THE FUCK IS A SEMICOLON",
+  "hey guess what im selling out buy my patreon, give me money, throw money at me please",
 ];
 
 let current = "";
@@ -427,6 +429,12 @@ musicToggle.addEventListener("click", () => {
 
 const linksData = [
   {
+    icon: "fa-solid fa-heart",
+    title: "Support Me :)",
+    sub: "thank you for supporting me <3",
+    url: "https://pxsl.dev/thanks/"
+  },
+  {
     icon: "fa-brands fa-discord",
     title: "Discord",
     sub: "@pxsldev1",
@@ -449,12 +457,6 @@ const linksData = [
     title: "YouTube 2",
     sub: "my even stupider content",
     url: "https://youtube.com/@pxslthesecond"
-  },
-  {
-    icon: "fa-brands fa-tiktok",
-    title: "TikTok",
-    sub: "short form content (rarely upload)",
-    url: "https://tiktok.com/@pxsldev1"
   },
   {
     icon: "fa-brands fa-itch-io",
