@@ -156,7 +156,7 @@ const roles = [
   "i put the 'pro' in 'programmer'",
   "your sentence of the day is...",
   "WHAT THE FUCK IS A SEMICOLON",
-  "hey guess what im selling out buy my patreon, give me money, throw money at me please",
+  "hey guess what im selling out buy my ko-fi, give me money, throw money at me please",
 ];
 
 let current = "";
