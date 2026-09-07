@@ -72,7 +72,7 @@
       "https://tiktok.com/@pxsldev1",
       "https://pxsldev1.itch.io"
     ],
-    "description": "Developer behind Pxslware, Clanker, terminal tools, experiments, and web projects."
+    "description": "Developer behind Clanker, Crumb, terminal tools, experiments, and web projects."
   }
   </script>
 </head>
@@ -90,6 +90,186 @@
 
   gtag('config', 'G-REEV1WS3ZB');
 </script>
+
+<div class="modal-overlay" id="booster-modal">
+  <div class="booster-modal">
+    <button class="modal-close" id="close-booster-modal">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+
+    <div class="modal-header">
+      <div class="modal-icon">
+        <i class="fa-solid fa-rocket"></i>
+      </div>
+
+      <div>
+        <h2>Server Booster Perks</h2>
+        <p>Boost the server. Get cool shit. Simple.</p>
+      </div>
+    </div>
+
+    <div class="perk-section">
+      <h3>
+        <i class="fa-brands fa-discord"></i>
+        Discord
+      </h3>
+
+      <div class="perk-list">
+        <div class="perk">
+          <span>🟣</span>
+          <p>Special <strong>Server Booster</strong> role</p>
+        </div>
+
+        <div class="perk">
+          <span>💬</span>
+          <p>Access to <strong>Booster-only general channel</strong></p>
+        </div>
+
+        <div class="perk">
+          <span>📢</span>
+          <p>Access to <strong>Booster-only announcements</strong></p>
+        </div>
+
+        <div class="perk">
+          <span>🔊</span>
+          <p>Access to <strong>Booster-only VC</strong></p>
+        </div>
+
+        <div class="perk">
+          <span>🧪</span>
+          <p>Access to the <strong>Clanker Beta Server</strong></p>
+        </div>
+
+        <div class="perk">
+          <span>🗳️</span>
+          <p>Access to exclusive polls</p>
+        </div>
+
+        <div class="perk">
+          <span>💡</span>
+          <p><strong>Priority consideration</strong> for suggestions</p>
+        </div>
+
+        <div class="perk">
+          <span>👀</span>
+          <p>Early announcements about upcoming features</p>
+        </div>
+
+        <div class="perk">
+          <span>🛠️</span>
+          <p>Behind-the-scenes development updates</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="perk-section">
+      <h3>
+        <i class="fa-solid fa-robot"></i>
+        Clanker
+      </h3>
+
+      <div class="perk-list">
+        <div class="perk">
+          <span>🎨</span>
+          <p>Access to <strong>Clanker themes</strong> <small>(coming soon)</small></p>
+        </div>
+
+        <div class="perk">
+          <span>🧪</span>
+          <p>Early access to experimental features</p>
+        </div>
+
+        <div class="perk">
+          <span>🏷️</span>
+          <p>Special Booster badge/title in Clanker</p>
+        </div>
+
+        <div class="perk">
+          <span>🏆</span>
+          <p>Special recognition in Clanker's credits</p>
+        </div>
+
+        <div class="perk">
+          <span>🌐</span>
+          <p>Special recognition on the Clanker website</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="perk-section">
+      <h3>
+        <i class="fa-solid fa-code"></i>
+        Development
+      </h3>
+
+      <div class="perk-list">
+        <div class="perk">
+          <span>💭</span>
+          <p>Suggestions given priority consideration</p>
+        </div>
+
+        <div class="perk">
+          <span>🧠</span>
+          <p>Give feedback on upcoming features</p>
+        </div>
+
+        <div class="perk">
+          <span>🗣️</span>
+          <p>Give your opinion on major Clanker changes</p>
+        </div>
+
+        <div class="perk">
+          <span>🔬</span>
+          <p>Help test new/experimental features</p>
+        </div>
+
+        <div class="perk">
+          <span>📋</span>
+          <p>Potentially be consulted before major changes or additions</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="perk-section">
+      <h3>
+        <i class="fa-solid fa-users"></i>
+        Community
+      </h3>
+
+      <div class="perk-list">
+        <div class="perk">
+          <span>🏆</span>
+          <p>Booster-only events</p>
+        </div>
+
+        <div class="perk">
+          <span>🎁</span>
+          <p>Occasional Booster-exclusive rewards</p>
+        </div>
+
+        <div class="perk">
+          <span>🎉</span>
+          <p>Special recognition when Clanker reaches major milestones</p>
+        </div>
+
+        <div class="perk">
+          <span>👑</span>
+          <p><strong>THE UPMOST OF BRAGGING RIGHTS™</strong></p>
+        </div>
+      </div>
+    </div>
+
+    <a
+      class="booster-join"
+      href="https://pxsl.dev/discord/"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <i class="fa-brands fa-discord"></i>
+      Boost the Discord
+    </a>
+  </div>
+</div>
 
 <body>
 
@@ -167,70 +347,28 @@
 
       </a>
 
-      <a
-        class="support-card"
-        href="https://clanker.pxsl.dev/discord/"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
+      <button class="support-card" id="booster-card" type="button">
+      <div class="icon">
+        <i class="fa-brands fa-discord"></i>
+      </div>
 
-        <div class="icon">
-          <i class="fa-brands fa-discord"></i>
+      <div class="support-content">
+        <div class="support-title">
+          <h2>Boost the Discord</h2>
+          <span class="badge">Community</span>
         </div>
 
-        <div class="support-content">
+        <p>
+          Support the community by boosting the Discord server.
+          You'll also get access to a bunch of exclusive Server Booster perks!
+        </p>
 
-          <div class="support-title">
-            <h2>Boost the Discord</h2>
-            <span class="badge">Community</span>
-          </div>
-
-          <p>
-            You can also support me by boosting the Discord server.
-            It helps the community grow too.
-            Also, you will get the same perks as the lowest Ko-Fi tier, so it's a win-win!
-          </p>
-
-          <span class="support-link">
-            Join the community
-            <i class="fa-solid fa-arrow-up-right-from-square"></i>
-          </span>
-
-        </div>
-
-      </a>
-
-      <a
-        class="support-card"
-        href="https://top.gg/bot/1482397035909873865/vote"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-
-        <div class="icon">
-          <i class="fa-solid fa-trophy"></i>
-        </div>
-
-        <div class="support-content">
-
-          <div class="support-title">
-            <h2>Vote for the Bot</h2>
-            <span class="badge">Clanker</span>
-          </div>
-
-          <p>
-            You can also support Clanker by voting for it on top.gg!
-            It really helps the bot grow and reach more people.
-          </p>
-
-          <span class="support-link">
-            Vote for Clanker :)
-            <i class="fa-solid fa-arrow-up-right-from-square"></i>
-          </span>
-
-        </div>
-
-      </a>
+        <span class="support-link">
+          Click to see the Server Booster perks
+          <i class="fa-solid fa-arrow-right"></i>
+        </span>
+      </div>
+    </button>
 
     </section>
 
@@ -241,7 +379,7 @@
         <i class="fa-solid fa-heart"></i>
       </div>
 
-      <h2>You don't have to pay anything.</h2>
+      <h2>You don't have to support me financially.</h2>
 
       <p>
         Seriously.
@@ -249,13 +387,19 @@
 
       <p>
         Using my projects, sharing them with your friends,
-        reporting bugs, contributing code, or even just telling me
-        that you enjoyed something I've made means a lot to me.
+        reporting bugs, suggesting ideas, contributing code,
+        or even just telling me that you enjoyed something I've made
+        already helps more than you might think.
+      </p>
+
+      <p>
+        If you do want to support me financially, <strong>donating through Ko-Fi
+        is the best way to support me directly.</strong>
       </p>
 
       <p class="small">
-        But if you do decide to support me financially...
-        <strong>thank you.</strong> 💜
+        And if you'd rather boost the Discord instead, that's hugely appreciated too.
+        It helps support the community while getting you some cool perks. 💜
       </p>
 
     </section>
@@ -280,6 +424,46 @@
   <script src="script.js"></script>
 
   <div id="transition"></div>
+
+  <script>
+document.addEventListener("DOMContentLoaded", () => {
+    const boosterCard = document.getElementById("booster-card");
+    const boosterModal = document.getElementById("booster-modal");
+    const closeBoosterModal = document.getElementById("close-booster-modal");
+
+    if (!boosterCard || !boosterModal || !closeBoosterModal) {
+        console.error("Booster modal elements could not be found.");
+        return;
+    }
+
+    boosterCard.addEventListener("click", () => {
+        boosterModal.classList.add("active");
+        document.body.style.overflow = "hidden";
+    });
+
+    closeBoosterModal.addEventListener("click", () => {
+        boosterModal.classList.remove("active");
+        document.body.style.overflow = "";
+    });
+
+    boosterModal.addEventListener("click", (event) => {
+        if (event.target === boosterModal) {
+            boosterModal.classList.remove("active");
+            document.body.style.overflow = "";
+        }
+    });
+
+    document.addEventListener("keydown", (event) => {
+        if (
+            event.key === "Escape" &&
+            boosterModal.classList.contains("active")
+        ) {
+            boosterModal.classList.remove("active");
+            document.body.style.overflow = "";
+        }
+    });
+});
+</script>
 
 </body>
 </html>
