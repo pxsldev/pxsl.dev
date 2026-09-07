@@ -444,7 +444,7 @@ const linksData = [
     icon: "fa-brands fa-github",
     title: "GitHub",
     sub: "projects & code",
-    url: "https://github.com/PxslGames"
+    url: "https://github.com/pxsldev"
   },
   {
     icon: "fa-brands fa-youtube",
