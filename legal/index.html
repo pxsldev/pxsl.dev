@@ -3,11 +3,180 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>pxsl.dev ~ legal</title>
 
   <link rel="stylesheet" href="styles.css" />
 
   <link rel="icon" type="image/png" href="../assets/website/favicon.png" />
+
+  <style>
+    /* Analytics consent banner */
+
+    .analytics-banner {
+      position: fixed;
+      left: 50%;
+      bottom: 24px;
+
+      transform: translate(-50%, 140%);
+
+      width: min(680px, calc(100% - 32px));
+
+      z-index: 9999;
+
+      background: rgba(25, 22, 42, 0.92);
+
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 18px;
+
+      box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.45),
+        0 0 40px rgba(120, 90, 255, 0.08);
+
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+
+      transition:
+        transform 0.5s cubic-bezier(.16, 1, .3, 1),
+        opacity 0.3s ease;
+
+      opacity: 0;
+    }
+
+    .analytics-banner.show {
+      transform: translate(-50%, 0);
+      opacity: 1;
+    }
+
+    .analytics-content {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 18px;
+    }
+
+    .analytics-icon {
+      flex: 0 0 42px;
+
+      width: 42px;
+      height: 42px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      color: #b7a5ff;
+
+      background: rgba(130, 100, 255, 0.12);
+
+      border: 1px solid rgba(160, 130, 255, 0.15);
+
+      border-radius: 12px;
+
+      font-size: 18px;
+    }
+
+    .analytics-text {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .analytics-text strong {
+      display: block;
+
+      margin-bottom: 4px;
+
+      color: #fff;
+
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .analytics-text p {
+      margin: 0;
+
+      color: rgba(255, 255, 255, 0.62);
+
+      font-size: 12px;
+      line-height: 1.5;
+    }
+
+    .analytics-actions {
+      display: flex;
+      flex-shrink: 0;
+      gap: 8px;
+    }
+
+    .analytics-btn {
+      border: 0;
+      border-radius: 10px;
+
+      padding: 9px 13px;
+
+      font-family: inherit;
+
+      font-size: 12px;
+      font-weight: 600;
+
+      cursor: pointer;
+
+      transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+    }
+
+    .analytics-btn:hover {
+      transform: translateY(-1px);
+    }
+
+    .analytics-btn.decline {
+      color: rgba(255, 255, 255, 0.65);
+
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .analytics-btn.decline:hover {
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .analytics-btn.accept {
+      color: #fff;
+
+      background: #7357e8;
+    }
+
+    .analytics-btn.accept:hover {
+      background: #8268f2;
+    }
+
+    @media (max-width: 600px) {
+      .analytics-content {
+        align-items: flex-start;
+        flex-wrap: wrap;
+      }
+
+      .analytics-icon {
+        flex: 0 0 38px;
+
+        width: 38px;
+        height: 38px;
+      }
+
+      .analytics-text {
+        flex: 1;
+      }
+
+      .analytics-actions {
+        width: 100%;
+        margin-top: 2px;
+      }
+
+      .analytics-btn {
+        flex: 1;
+        padding: 10px;
+      }
+    }
+  </style>
 </head>
 
 <body>
@@ -30,95 +199,318 @@
     <div class="project">
       <div class="content">
         <h2>🎵 Music / Audio Content</h2>
+
         <p>
-          This website may include songs, music clips, or other audio content that are the property of their respective artists and copyright holders.
+          This website may include songs, music clips, or other audio content
+          that are the property of their respective artists and copyright holders.
           All rights remain with the original creators.
         </p>
 
         <p style="margin-top:10px;">
-          If you are an artist, label, or rights holder and believe your content is being used in a way you do not approve of,
-          you can contact me at any time and I will remove it promptly. Genuinely, I want to respect artists' rights and will not hesitate to take down any content if requested.
+          If you are an artist, label, or rights holder and believe your content
+          is being used in a way you do not approve of, you can contact me at any
+          time and I will remove it promptly. Genuinely, I want to respect artists'
+          rights and will not hesitate to take down any content if requested.
         </p>
       </div>
     </div>
 
+
     <div class="project">
       <div class="content">
+
         <h2>📊 Analytics</h2>
+
         <p>
-          This website uses Google Analytics to collect anonymous usage data such as page views, device type, and general interaction statistics. pxsl.dev and all of it's relevant subdomains are protected by cloudflare, and so, we will also get analytic data from cloudflare, which is also anonymous and used to improve website performance and user experience.
+          pxsl.dev may use Google Analytics to collect anonymous usage data such
+          as page views, device type, and general interaction statistics.
+          Google Analytics is only enabled if you explicitly give consent through
+          the analytics banner shown on the website.
         </p>
 
         <p style="margin-top:10px;">
-          This data is used only to improve website performance and user experience.
-          No personally identifiable information is intentionally collected or sold.
+          If you decline analytics, Google Analytics will not be loaded and no
+          Google Analytics data will be collected through this website.
         </p>
+
+        <p style="margin-top:10px;">
+          pxsl.dev and its relevant subdomains are also protected by Cloudflare.
+          Cloudflare may collect technical and security-related information as
+          part of providing its services, including information necessary to
+          protect the website from abuse and attacks.
+        </p>
+
+        <p style="margin-top:10px;">
+          Analytics information is used to understand how the website is used,
+          improve performance, and improve the overall user experience.
+          No personally identifiable information is intentionally collected or sold
+          through Google Analytics.
+        </p>
+
       </div>
     </div>
 
+
     <div class="project">
       <div class="content">
+
         <h2>📩 Contact / Takedown Requests</h2>
+
         <p>
-          If you need to request removal of content, report an issue, or contact the site owner,
-          please reach out via the official contact method linked on this site.
+          If you need to request removal of content, report an issue, or contact
+          the site owner, please reach out via the official contact method linked
+          on this site.
         </p>
 
         <p style="margin-top:10px;">
           I aim to respond quickly and resolve valid requests as soon as possible.
         </p>
+
       </div>
     </div>
+
 
     <div class="project">
       <div class="content">
+
         <h2>⚖️ General Disclaimer</h2>
+
         <p>
-          All content on this website is provided for informational and entertainment purposes only.
-          No guarantees are made regarding accuracy, availability, or completeness.
+          All content on this website is provided for informational and
+          entertainment purposes only. No guarantees are made regarding accuracy,
+          availability, or completeness.
         </p>
+
       </div>
     </div>
 
+
     <div class="project">
-  <div class="content">
-    <h2>📜 Source Code & Usage</h2>
+      <div class="content">
 
-    <p>
-      This website's source code, website design, assets, and all associated files are protected by copyright.
-      They are publicly accessible for transparency and educational purposes only.
-    </p>
+        <h2>📜 Source Code & Usage</h2>
 
-    <p style="margin-top:10px;">
-      No permission is granted to use, copy, modify, merge, publish, distribute,
-      sublicense, or create derivative works from this project or any substantial
-      portion of it without prior written permission.
-    </p>
+        <p>
+          This website's source code, website design, assets, and all associated
+          files are protected by copyright. They are publicly accessible for
+          transparency and educational purposes only.
+        </p>
 
-    <p style="margin-top:10px;">
-      If you would like permission to use any part of this project, the easiest way
-      to ask is by contacting me on Discord using the <strong>Discord</strong> link
-      on this website.
-    </p>
+        <p style="margin-top:10px;">
+          No permission is granted to use, copy, modify, merge, publish, distribute,
+          sublicense, or create derivative works from this project or any substantial
+          portion of it without prior written permission.
+        </p>
 
-    <p style="margin-top:10px;">
-      Small snippets of code may be used for educational purposes or reference,
-      provided they do not constitute a substantial portion of this project and are
-      not used to recreate or compete with this project.
-    </p>
+        <p style="margin-top:10px;">
+          If you would like permission to use any part of this project, the easiest
+          way to ask is by contacting me on Discord using the
+          <strong>Discord</strong> link on this website.
+        </p>
 
-    <p style="margin-top:10px;">
-      This project is <strong>not open source</strong>. All rights are reserved
-      unless explicitly stated otherwise.
-    </p>
+        <p style="margin-top:10px;">
+          Small snippets of code may be used for educational purposes or reference,
+          provided they do not constitute a substantial portion of this project and
+          are not used to recreate or compete with this project.
+        </p>
 
-    <p style="margin-top:10px;font-size:0.9em;opacity:0.8;">
-      The software is provided "AS IS", without warranty of any kind.
-    </p>
+        <p style="margin-top:10px;">
+          This project is <strong>not open source</strong>. All rights are reserved
+          unless explicitly stated otherwise.
+        </p>
+
+        <p style="margin-top:10px;font-size:0.9em;opacity:0.8;">
+          The software is provided "AS IS", without warranty of any kind.
+        </p>
+
+      </div>
+    </div>
+
   </div>
-</div>
+
+
+  <!-- Analytics consent banner -->
+
+  <div
+    id="analyticsBanner"
+    class="analytics-banner"
+  >
+
+    <div class="analytics-content">
+
+      <div class="analytics-icon">
+        <i class="fa-solid fa-chart-simple"></i>
+      </div>
+
+      <div class="analytics-text">
+
+        <strong>
+          Can I use analytics?
+        </strong>
+
+        <p>
+          I'd like to use Google Analytics to understand how people use
+          pxsl.dev and improve the site. No Google Analytics tracking will
+          be loaded unless you agree.
+        </p>
+
+      </div>
+
+      <div class="analytics-actions">
+
+        <button
+          id="analyticsDecline"
+          class="analytics-btn decline"
+          type="button"
+        >
+          No thanks
+        </button>
+
+        <button
+          id="analyticsAccept"
+          class="analytics-btn accept"
+          type="button"
+        >
+          I'm okay with it
+        </button>
+
+      </div>
+
+    </div>
 
   </div>
+
+
+  <script>
+
+    /*
+     * Google Analytics is deliberately NOT included
+     * directly in this page.
+     *
+     * It is only loaded after explicit consent.
+     */
+
+    function enableAnalytics() {
+
+      if (
+        localStorage.getItem("analytics-consent") !== "accepted"
+      ) {
+        return;
+      }
+
+      // Prevent Google Analytics from being loaded twice.
+
+      if (
+        document.querySelector(
+          'script[src*="googletagmanager.com/gtag/js"]'
+        )
+      ) {
+        return;
+      }
+
+      const script = document.createElement("script");
+
+      script.async = true;
+
+      script.src =
+        "https://www.googletagmanager.com/gtag/js?id=G-REEV1WS3ZB";
+
+      document.head.appendChild(script);
+
+
+      window.dataLayer = window.dataLayer || [];
+
+
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+
+
+      window.gtag = gtag;
+
+
+      gtag("js", new Date());
+
+      gtag("config", "G-REEV1WS3ZB");
+
+    }
+
+
+    const analyticsBanner =
+      document.getElementById("analyticsBanner");
+
+    const analyticsAccept =
+      document.getElementById("analyticsAccept");
+
+    const analyticsDecline =
+      document.getElementById("analyticsDecline");
+
+
+    const analyticsConsent =
+      localStorage.getItem("analytics-consent");
+
+
+    /*
+     * Existing consent.
+     */
+
+    if (analyticsConsent === "accepted") {
+
+      enableAnalytics();
+
+    }
+
+
+    /*
+     * Show the banner only when
+     * the visitor has not made a choice.
+     */
+
+    if (!analyticsConsent) {
+
+      setTimeout(() => {
+
+        analyticsBanner.classList.add("show");
+
+      }, 800);
+
+    }
+
+
+    /*
+     * Accept analytics.
+     */
+
+    analyticsAccept.addEventListener("click", () => {
+
+      localStorage.setItem(
+        "analytics-consent",
+        "accepted"
+      );
+
+      analyticsBanner.classList.remove("show");
+
+      enableAnalytics();
+
+    });
+
+
+    /*
+     * Decline analytics.
+     */
+
+    analyticsDecline.addEventListener("click", () => {
+
+      localStorage.setItem(
+        "analytics-consent",
+        "declined"
+      );
+
+      analyticsBanner.classList.remove("show");
+
+    });
+
+  </script>
 
 </body>
 </html>
