@@ -76,15 +76,6 @@
   }
   </script>
 </head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-REEV1WS3ZB"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-REEV1WS3ZB');
-</script>
 
 <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
 
@@ -200,6 +191,60 @@
   <div class="swipe-hint">
     swipe up for projects
   </div>
+
+  <div id="analyticsBanner" class="analytics-banner">
+  <div class="analytics-content">
+    <div class="analytics-icon">
+      <i class="fa-solid fa-chart-simple"></i>
+    </div>
+
+    <div class="analytics-text">
+      <strong>Can I use analytics?</strong>
+      <p>
+        I'd like to use Google Analytics to understand how people use
+        pxsl.dev and improve the site. No analytics will be loaded unless
+        you agree.
+      </p>
+    </div>
+
+    <div class="analytics-actions">
+      <button id="analyticsDecline" class="analytics-btn decline">
+        No thanks
+      </button>
+
+      <button id="analyticsAccept" class="analytics-btn accept">
+        I'm okay with it
+      </button>
+    </div>
+  </div>
+</div>
+
+
+  <script>
+  function enableAnalytics() {
+    if (localStorage.getItem("analytics-consent") !== "accepted") return;
+
+    const script = document.createElement("script");
+    script.async = true;
+    script.src = "https://www.googletagmanager.com/gtag/js?id=G-REEV1WS3ZB";
+    document.head.appendChild(script);
+
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    window.gtag = gtag;
+
+    gtag("js", new Date());
+    gtag("config", "G-REEV1WS3ZB");
+  }
+
+  if (localStorage.getItem("analytics-consent") === "accepted") {
+    enableAnalytics();
+  }
+</script>
 
   <script src="script.js"></script>
 

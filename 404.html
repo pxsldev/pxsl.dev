@@ -7,30 +7,304 @@
   <title>pxsl.dev ~ 404</title>
 
   <meta name="robots" content="noindex">
-</head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-REEV1WS3ZB"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'G-REEV1WS3ZB');
-</script>
+  <style>
+    .analytics-banner {
+      position: fixed;
+      left: 50%;
+      bottom: 24px;
+      transform: translate(-50%, 140%);
+      width: min(680px, calc(100% - 32px));
+      z-index: 9999;
+
+      background: rgba(25, 22, 42, 0.92);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 18px;
+
+      box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.45),
+        0 0 40px rgba(120, 90, 255, 0.08);
+
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+
+      transition:
+        transform 0.5s cubic-bezier(.16, 1, .3, 1),
+        opacity 0.3s ease;
+
+      opacity: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    .analytics-banner.show {
+      transform: translate(-50%, 0);
+      opacity: 1;
+    }
+
+    .analytics-content {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 18px;
+    }
+
+    .analytics-icon {
+      flex: 0 0 42px;
+
+      width: 42px;
+      height: 42px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      color: #b7a5ff;
+      background: rgba(130, 100, 255, 0.12);
+      border: 1px solid rgba(160, 130, 255, 0.15);
+      border-radius: 12px;
+
+      font-size: 20px;
+    }
+
+    .analytics-text {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .analytics-text strong {
+      display: block;
+      margin-bottom: 4px;
+
+      color: #fff;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .analytics-text p {
+      margin: 0;
+
+      color: rgba(255, 255, 255, 0.62);
+      font-size: 12px;
+      line-height: 1.5;
+    }
+
+    .analytics-actions {
+      display: flex;
+      flex-shrink: 0;
+      gap: 8px;
+    }
+
+    .analytics-btn {
+      border: 0;
+      border-radius: 10px;
+      padding: 9px 13px;
+
+      font-family: inherit;
+      font-size: 12px;
+      font-weight: 600;
+
+      cursor: pointer;
+      transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+    }
+
+    .analytics-btn:hover {
+      transform: translateY(-1px);
+    }
+
+    .analytics-btn.decline {
+      color: rgba(255, 255, 255, 0.65);
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .analytics-btn.decline:hover {
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .analytics-btn.accept {
+      color: #fff;
+      background: #7357e8;
+    }
+
+    .analytics-btn.accept:hover {
+      background: #8268f2;
+    }
+
+    @media (max-width: 600px) {
+      .analytics-content {
+        align-items: flex-start;
+        flex-wrap: wrap;
+      }
+
+      .analytics-icon {
+        flex: 0 0 38px;
+        width: 38px;
+        height: 38px;
+      }
+
+      .analytics-text {
+        flex: 1;
+      }
+
+      .analytics-actions {
+        width: 100%;
+        margin-top: 2px;
+      }
+
+      .analytics-btn {
+        flex: 1;
+        padding: 10px;
+      }
+    }
+  </style>
+</head>
+
 <body>
 
   <h1>404</h1>
 
-  <h2>hi, maybe you were looking for one of my old, discontinued projects.</h2>
-  <h2>to see my current, maintained projects, check out the projects page below, or, if this was a mistake, there is a link for the home page :)
+  <h2>
+    hi, maybe you were looking for one of my old, discontinued projects.
+  </h2>
 
-also, you can find a link to "archive.pxsl.dev", which is a big website full of all of my old projects, and old versions of my long standing projects (including this website)</h2>
+  <h2>
+    to see my current, maintained projects, check out the projects page below,
+    or, if this was a mistake, there is a link for the home page :)
+    
+    also, you can find a link to "archive.pxsl.dev", which is a big website
+    full of all of my old projects, and old versions of my long standing
+    projects (including this website)
+  </h2>
 
   <a href="/projects/">projects</a>
   |
   <a href="/">home page</a>
   |
   <a href="https://archive.pxsl.dev/">pxsl's archive</a>
+
+  <div id="analyticsBanner" class="analytics-banner">
+    <div class="analytics-content">
+
+      <div class="analytics-icon">
+        📊
+      </div>
+
+      <div class="analytics-text">
+        <strong>Can I use analytics?</strong>
+
+        <p>
+          I'd like to use Google Analytics to understand how people use
+          pxsl.dev and improve the site. No analytics will be loaded unless
+          you agree.
+        </p>
+      </div>
+
+      <div class="analytics-actions">
+
+        <button id="analyticsDecline" class="analytics-btn decline">
+          No thanks
+        </button>
+
+        <button id="analyticsAccept" class="analytics-btn accept">
+          I'm okay with it
+        </button>
+
+      </div>
+
+    </div>
+  </div>
+
+
+  <script>
+    function enableAnalytics() {
+
+      if (
+        localStorage.getItem("analytics-consent") !== "accepted"
+      ) {
+        return;
+      }
+
+      if (
+        document.querySelector(
+          'script[src*="googletagmanager.com/gtag/js"]'
+        )
+      ) {
+        return;
+      }
+
+      const script = document.createElement("script");
+
+      script.async = true;
+      script.src =
+        "https://www.googletagmanager.com/gtag/js?id=G-REEV1WS3ZB";
+
+      document.head.appendChild(script);
+
+      window.dataLayer = window.dataLayer || [];
+
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+
+      window.gtag = gtag;
+
+      gtag("js", new Date());
+      gtag("config", "G-REEV1WS3ZB");
+    }
+
+    const analyticsBanner =
+      document.getElementById("analyticsBanner");
+
+    const analyticsAccept =
+      document.getElementById("analyticsAccept");
+
+    const analyticsDecline =
+      document.getElementById("analyticsDecline");
+
+
+    const analyticsConsent =
+      localStorage.getItem("analytics-consent");
+
+    if (analyticsConsent === "accepted") {
+
+      enableAnalytics();
+
+    }
+
+    if (!analyticsConsent) {
+
+      setTimeout(() => {
+        analyticsBanner.classList.add("show");
+      }, 500);
+
+    }
+
+    analyticsAccept.addEventListener("click", () => {
+
+      localStorage.setItem(
+        "analytics-consent",
+        "accepted"
+      );
+
+      analyticsBanner.classList.remove("show");
+
+      enableAnalytics();
+
+    });
+
+    analyticsDecline.addEventListener("click", () => {
+
+      localStorage.setItem(
+        "analytics-consent",
+        "declined"
+      );
+
+      analyticsBanner.classList.remove("show");
+
+    });
+
+  </script>
 
 </body>
 </html>

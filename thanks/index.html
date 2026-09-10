@@ -60,6 +60,159 @@
 
   <link rel="stylesheet" href="styles.css" />
 
+  <style>
+    /* Analytics consent banner */
+
+    .analytics-banner {
+      position: fixed;
+      left: 50%;
+      bottom: 24px;
+      transform: translate(-50%, 140%);
+      width: min(680px, calc(100% - 32px));
+      z-index: 9999;
+
+      background: rgba(25, 22, 42, 0.92);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 18px;
+
+      box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.45),
+        0 0 40px rgba(120, 90, 255, 0.08);
+
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+
+      transition:
+        transform 0.5s cubic-bezier(.16, 1, .3, 1),
+        opacity 0.3s ease;
+
+      opacity: 0;
+    }
+
+    .analytics-banner.show {
+      transform: translate(-50%, 0);
+      opacity: 1;
+    }
+
+    .analytics-content {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 18px;
+    }
+
+    .analytics-icon {
+      flex: 0 0 42px;
+
+      width: 42px;
+      height: 42px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      color: #b7a5ff;
+      background: rgba(130, 100, 255, 0.12);
+      border: 1px solid rgba(160, 130, 255, 0.15);
+      border-radius: 12px;
+
+      font-size: 18px;
+    }
+
+    .analytics-text {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .analytics-text strong {
+      display: block;
+      margin-bottom: 4px;
+
+      color: #fff;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .analytics-text p {
+      margin: 0;
+
+      color: rgba(255, 255, 255, 0.62);
+      font-size: 12px;
+      line-height: 1.5;
+    }
+
+    .analytics-actions {
+      display: flex;
+      flex-shrink: 0;
+      gap: 8px;
+    }
+
+    .analytics-btn {
+      border: 0;
+      border-radius: 10px;
+      padding: 9px 13px;
+
+      font-family: inherit;
+      font-size: 12px;
+      font-weight: 600;
+
+      cursor: pointer;
+
+      transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+    }
+
+    .analytics-btn:hover {
+      transform: translateY(-1px);
+    }
+
+    .analytics-btn.decline {
+      color: rgba(255, 255, 255, 0.65);
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .analytics-btn.decline:hover {
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .analytics-btn.accept {
+      color: #fff;
+      background: #7357e8;
+    }
+
+    .analytics-btn.accept:hover {
+      background: #8268f2;
+    }
+
+    @media (max-width: 600px) {
+      .analytics-content {
+        align-items: flex-start;
+        flex-wrap: wrap;
+      }
+
+      .analytics-icon {
+        flex: 0 0 38px;
+        width: 38px;
+        height: 38px;
+      }
+
+      .analytics-text {
+        flex: 1;
+      }
+
+      .analytics-actions {
+        width: 100%;
+        margin-top: 2px;
+      }
+
+      .analytics-btn {
+        flex: 1;
+        padding: 10px;
+      }
+    }
+  </style>
+
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -77,207 +230,225 @@
   </script>
 </head>
 
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-REEV1WS3ZB"></script>
-
-<script>
-  window.dataLayer = window.dataLayer || [];
-
-  function gtag(){
-    dataLayer.push(arguments);
-  }
-
-  gtag('js', new Date());
-
-  gtag('config', 'G-REEV1WS3ZB');
-</script>
-
-<div class="modal-overlay" id="booster-modal">
-  <div class="booster-modal">
-    <button class="modal-close" id="close-booster-modal">
-      <i class="fa-solid fa-xmark"></i>
-    </button>
-
-    <div class="modal-header">
-      <div class="modal-icon">
-        <i class="fa-solid fa-rocket"></i>
-      </div>
-
-      <div>
-        <h2>Server Booster Perks</h2>
-        <p>Boost the server. Get cool shit. Simple.</p>
-      </div>
-    </div>
-
-    <div class="perk-section">
-      <h3>
-        <i class="fa-brands fa-discord"></i>
-        Discord
-      </h3>
-
-      <div class="perk-list">
-        <div class="perk">
-          <span>🟣</span>
-          <p>Special <strong>Server Booster</strong> role</p>
-        </div>
-
-        <div class="perk">
-          <span>💬</span>
-          <p>Access to <strong>Booster-only general channel</strong></p>
-        </div>
-
-        <div class="perk">
-          <span>📢</span>
-          <p>Access to <strong>Booster-only announcements</strong></p>
-        </div>
-
-        <div class="perk">
-          <span>🔊</span>
-          <p>Access to <strong>Booster-only VC</strong></p>
-        </div>
-
-        <div class="perk">
-          <span>🧪</span>
-          <p>Access to the <strong>Clanker Beta Server</strong></p>
-        </div>
-
-        <div class="perk">
-          <span>🗳️</span>
-          <p>Access to exclusive polls</p>
-        </div>
-
-        <div class="perk">
-          <span>💡</span>
-          <p><strong>Priority consideration</strong> for suggestions</p>
-        </div>
-
-        <div class="perk">
-          <span>👀</span>
-          <p>Early announcements about upcoming features</p>
-        </div>
-
-        <div class="perk">
-          <span>🛠️</span>
-          <p>Behind-the-scenes development updates</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="perk-section">
-      <h3>
-        <i class="fa-solid fa-robot"></i>
-        Clanker
-      </h3>
-
-      <div class="perk-list">
-        <div class="perk">
-          <span>🎨</span>
-          <p>Access to <strong>Clanker themes</strong> <small>(coming soon)</small></p>
-        </div>
-
-        <div class="perk">
-          <span>🧪</span>
-          <p>Early access to experimental features</p>
-        </div>
-
-        <div class="perk">
-          <span>🏷️</span>
-          <p>Special Booster badge/title in Clanker</p>
-        </div>
-
-        <div class="perk">
-          <span>🏆</span>
-          <p>Special recognition in Clanker's credits</p>
-        </div>
-
-        <div class="perk">
-          <span>🌐</span>
-          <p>Special recognition on the Clanker website</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="perk-section">
-      <h3>
-        <i class="fa-solid fa-code"></i>
-        Development
-      </h3>
-
-      <div class="perk-list">
-        <div class="perk">
-          <span>💭</span>
-          <p>Suggestions given priority consideration</p>
-        </div>
-
-        <div class="perk">
-          <span>🧠</span>
-          <p>Give feedback on upcoming features</p>
-        </div>
-
-        <div class="perk">
-          <span>🗣️</span>
-          <p>Give your opinion on major Clanker changes</p>
-        </div>
-
-        <div class="perk">
-          <span>🔬</span>
-          <p>Help test new/experimental features</p>
-        </div>
-
-        <div class="perk">
-          <span>📋</span>
-          <p>Potentially be consulted before major changes or additions</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="perk-section">
-      <h3>
-        <i class="fa-solid fa-users"></i>
-        Community
-      </h3>
-
-      <div class="perk-list">
-        <div class="perk">
-          <span>🏆</span>
-          <p>Booster-only events</p>
-        </div>
-
-        <div class="perk">
-          <span>🎁</span>
-          <p>Occasional Booster-exclusive rewards</p>
-        </div>
-
-        <div class="perk">
-          <span>🎉</span>
-          <p>Special recognition when Clanker reaches major milestones</p>
-        </div>
-
-        <div class="perk">
-          <span>👑</span>
-          <p><strong>THE UPMOST OF BRAGGING RIGHTS™</strong></p>
-        </div>
-      </div>
-    </div>
-
-    <a
-      class="booster-join"
-      href="https://pxsl.dev/discord/"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      <i class="fa-brands fa-discord"></i>
-      Boost the Discord
-    </a>
-  </div>
-</div>
 
 <body>
 
-  <div class="bg">
-    <div class="grid"></div>
-    <div class="orb one"></div>
-    <div class="orb two"></div>
+  <div class="modal-overlay" id="booster-modal">
+
+    <div class="booster-modal">
+
+      <button class="modal-close" id="close-booster-modal">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <div class="modal-header">
+
+        <div class="modal-icon">
+          <i class="fa-solid fa-rocket"></i>
+        </div>
+
+        <div>
+          <h2>Server Booster Perks</h2>
+          <p>Boost the server. Get cool shit. Simple.</p>
+        </div>
+
+      </div>
+
+
+      <div class="perk-section">
+
+        <h3>
+          <i class="fa-brands fa-discord"></i>
+          Discord
+        </h3>
+
+        <div class="perk-list">
+
+          <div class="perk">
+            <span>🟣</span>
+            <p>Special <strong>Server Booster</strong> role</p>
+          </div>
+
+          <div class="perk">
+            <span>💬</span>
+            <p>Access to <strong>Booster-only general channel</strong></p>
+          </div>
+
+          <div class="perk">
+            <span>📢</span>
+            <p>Access to <strong>Booster-only announcements</strong></p>
+          </div>
+
+          <div class="perk">
+            <span>🔊</span>
+            <p>Access to <strong>Booster-only VC</strong></p>
+          </div>
+
+          <div class="perk">
+            <span>🧪</span>
+            <p>Access to the <strong>Clanker Beta Server</strong></p>
+          </div>
+
+          <div class="perk">
+            <span>🗳️</span>
+            <p>Access to exclusive polls</p>
+          </div>
+
+          <div class="perk">
+            <span>💡</span>
+            <p><strong>Priority consideration</strong> for suggestions</p>
+          </div>
+
+          <div class="perk">
+            <span>👀</span>
+            <p>Early announcements about upcoming features</p>
+          </div>
+
+          <div class="perk">
+            <span>🛠️</span>
+            <p>Behind-the-scenes development updates</p>
+          </div>
+
+        </div>
+      </div>
+
+
+      <div class="perk-section">
+
+        <h3>
+          <i class="fa-solid fa-robot"></i>
+          Clanker
+        </h3>
+
+        <div class="perk-list">
+
+          <div class="perk">
+            <span>🎨</span>
+            <p>
+              Access to <strong>Clanker themes</strong>
+              <small>(coming soon)</small>
+            </p>
+          </div>
+
+          <div class="perk">
+            <span>🧪</span>
+            <p>Early access to experimental features</p>
+          </div>
+
+          <div class="perk">
+            <span>🏷️</span>
+            <p>Special Booster badge/title in Clanker</p>
+          </div>
+
+          <div class="perk">
+            <span>🏆</span>
+            <p>Special recognition in Clanker's credits</p>
+          </div>
+
+          <div class="perk">
+            <span>🌐</span>
+            <p>Special recognition on the Clanker website</p>
+          </div>
+
+        </div>
+      </div>
+
+
+      <div class="perk-section">
+
+        <h3>
+          <i class="fa-solid fa-code"></i>
+          Development
+        </h3>
+
+        <div class="perk-list">
+
+          <div class="perk">
+            <span>💭</span>
+            <p>Suggestions given priority consideration</p>
+          </div>
+
+          <div class="perk">
+            <span>🧠</span>
+            <p>Give feedback on upcoming features</p>
+          </div>
+
+          <div class="perk">
+            <span>🗣️</span>
+            <p>Give your opinion on major Clanker changes</p>
+          </div>
+
+          <div class="perk">
+            <span>🔬</span>
+            <p>Help test new/experimental features</p>
+          </div>
+
+          <div class="perk">
+            <span>📋</span>
+            <p>Potentially be consulted before major changes or additions</p>
+          </div>
+
+        </div>
+      </div>
+
+
+      <div class="perk-section">
+
+        <h3>
+          <i class="fa-solid fa-users"></i>
+          Community
+        </h3>
+
+        <div class="perk-list">
+
+          <div class="perk">
+            <span>🏆</span>
+            <p>Booster-only events</p>
+          </div>
+
+          <div class="perk">
+            <span>🎁</span>
+            <p>Occasional Booster-exclusive rewards</p>
+          </div>
+
+          <div class="perk">
+            <span>🎉</span>
+            <p>Special recognition when Clanker reaches major milestones</p>
+          </div>
+
+          <div class="perk">
+            <span>👑</span>
+            <p><strong>THE UPMOST OF BRAGGING RIGHTS™</strong></p>
+          </div>
+
+        </div>
+      </div>
+
+
+      <a
+        class="booster-join"
+        href="https://pxsl.dev/discord/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <i class="fa-brands fa-discord"></i>
+        Boost the Discord
+      </a>
+
+    </div>
   </div>
+
+
+  <div class="bg">
+
+    <div class="grid"></div>
+
+    <div class="orb one"></div>
+
+    <div class="orb two"></div>
+
+  </div>
+
 
   <header class="top">
 
@@ -292,6 +463,7 @@
     </p>
 
   </header>
+
 
   <main class="container">
 
@@ -347,28 +519,33 @@
 
       </a>
 
-      <button class="support-card" id="booster-card" type="button">
-      <div class="icon">
-        <i class="fa-brands fa-discord"></i>
-      </div>
 
-      <div class="support-content">
-        <div class="support-title">
-          <h2>Boost the Discord</h2>
-          <span class="badge">Community</span>
+      <button class="support-card" id="booster-card" type="button">
+
+        <div class="icon">
+          <i class="fa-brands fa-discord"></i>
         </div>
 
-        <p>
-          Support the community by boosting the Discord server.
-          You'll also get access to a bunch of exclusive Server Booster perks!
-        </p>
+        <div class="support-content">
 
-        <span class="support-link">
-          Click to see the Server Booster perks
-          <i class="fa-solid fa-arrow-right"></i>
-        </span>
-      </div>
-    </button>
+          <div class="support-title">
+            <h2>Boost the Discord</h2>
+            <span class="badge">Community</span>
+          </div>
+
+          <p>
+            Support the community by boosting the Discord server.
+            You'll also get access to a bunch of exclusive Server Booster perks!
+          </p>
+
+          <span class="support-link">
+            Click to see the Server Booster perks
+            <i class="fa-solid fa-arrow-right"></i>
+          </span>
+
+        </div>
+
+      </button>
 
     </section>
 
@@ -393,8 +570,8 @@
       </p>
 
       <p>
-        If you do want to support me financially, <strong>donating through Ko-Fi
-        is the best way to support me directly.</strong>
+        If you do want to support me financially,
+        <strong>donating through Ko-Fi is the best way to support me directly.</strong>
       </p>
 
       <p class="small">
@@ -421,49 +598,250 @@
   </a>
 
 
-  <script src="script.js"></script>
+  <!-- Analytics consent banner -->
+
+  <div id="analyticsBanner" class="analytics-banner">
+
+    <div class="analytics-content">
+
+      <div class="analytics-icon">
+        <i class="fa-solid fa-chart-simple"></i>
+      </div>
+
+      <div class="analytics-text">
+
+        <strong>Can I use analytics?</strong>
+
+        <p>
+          I'd like to use Google Analytics to understand how people use
+          pxsl.dev and improve the site. No analytics will be loaded unless
+          you agree.
+        </p>
+
+      </div>
+
+      <div class="analytics-actions">
+
+        <button
+          id="analyticsDecline"
+          class="analytics-btn decline"
+          type="button"
+        >
+          No thanks
+        </button>
+
+        <button
+          id="analyticsAccept"
+          class="analytics-btn accept"
+          type="button"
+        >
+          I'm okay with it
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
 
   <div id="transition"></div>
 
-  <script>
-document.addEventListener("DOMContentLoaded", () => {
-    const boosterCard = document.getElementById("booster-card");
-    const boosterModal = document.getElementById("booster-modal");
-    const closeBoosterModal = document.getElementById("close-booster-modal");
 
-    if (!boosterCard || !boosterModal || !closeBoosterModal) {
-        console.error("Booster modal elements could not be found.");
+  <script src="script.js"></script>
+
+
+  <script>
+    /*
+     * Google Analytics
+     *
+     * Analytics is ONLY loaded when the visitor has
+     * explicitly accepted it.
+     */
+
+    function enableAnalytics() {
+
+      if (
+        localStorage.getItem("analytics-consent") !== "accepted"
+      ) {
         return;
+      }
+
+      // Don't load Google Analytics twice.
+      if (
+        document.querySelector(
+          'script[src*="googletagmanager.com/gtag/js"]'
+        )
+      ) {
+        return;
+      }
+
+      const script = document.createElement("script");
+
+      script.async = true;
+
+      script.src =
+        "https://www.googletagmanager.com/gtag/js?id=G-REEV1WS3ZB";
+
+      document.head.appendChild(script);
+
+
+      window.dataLayer = window.dataLayer || [];
+
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+
+      window.gtag = gtag;
+
+
+      gtag("js", new Date());
+
+      gtag("config", "G-REEV1WS3ZB");
     }
 
-    boosterCard.addEventListener("click", () => {
+
+    /*
+     * Analytics consent
+     */
+
+    const analyticsBanner =
+      document.getElementById("analyticsBanner");
+
+    const analyticsAccept =
+      document.getElementById("analyticsAccept");
+
+    const analyticsDecline =
+      document.getElementById("analyticsDecline");
+
+
+    const analyticsConsent =
+      localStorage.getItem("analytics-consent");
+
+
+    // Already accepted on another pxsl.dev page.
+    if (analyticsConsent === "accepted") {
+
+      enableAnalytics();
+
+    }
+
+
+    // No choice has been made yet.
+    if (!analyticsConsent) {
+
+      setTimeout(() => {
+
+        analyticsBanner.classList.add("show");
+
+      }, 800);
+
+    }
+
+
+    // Visitor accepts analytics.
+    analyticsAccept.addEventListener("click", () => {
+
+      localStorage.setItem(
+        "analytics-consent",
+        "accepted"
+      );
+
+      analyticsBanner.classList.remove("show");
+
+      enableAnalytics();
+
+    });
+
+
+    // Visitor declines analytics.
+    analyticsDecline.addEventListener("click", () => {
+
+      localStorage.setItem(
+        "analytics-consent",
+        "declined"
+      );
+
+      analyticsBanner.classList.remove("show");
+
+    });
+  </script>
+
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+
+      const boosterCard =
+        document.getElementById("booster-card");
+
+      const boosterModal =
+        document.getElementById("booster-modal");
+
+      const closeBoosterModal =
+        document.getElementById("close-booster-modal");
+
+
+      if (
+        !boosterCard ||
+        !boosterModal ||
+        !closeBoosterModal
+      ) {
+        console.error(
+          "Booster modal elements could not be found."
+        );
+
+        return;
+      }
+
+
+      boosterCard.addEventListener("click", () => {
+
         boosterModal.classList.add("active");
+
         document.body.style.overflow = "hidden";
-    });
 
-    closeBoosterModal.addEventListener("click", () => {
+      });
+
+
+      closeBoosterModal.addEventListener("click", () => {
+
         boosterModal.classList.remove("active");
+
         document.body.style.overflow = "";
-    });
 
-    boosterModal.addEventListener("click", (event) => {
+      });
+
+
+      boosterModal.addEventListener("click", (event) => {
+
         if (event.target === boosterModal) {
-            boosterModal.classList.remove("active");
-            document.body.style.overflow = "";
-        }
-    });
 
-    document.addEventListener("keydown", (event) => {
-        if (
-            event.key === "Escape" &&
-            boosterModal.classList.contains("active")
-        ) {
-            boosterModal.classList.remove("active");
-            document.body.style.overflow = "";
+          boosterModal.classList.remove("active");
+
+          document.body.style.overflow = "";
+
         }
+
+      });
+
+
+      document.addEventListener("keydown", (event) => {
+
+        if (
+          event.key === "Escape" &&
+          boosterModal.classList.contains("active")
+        ) {
+
+          boosterModal.classList.remove("active");
+
+          document.body.style.overflow = "";
+
+        }
+
+      });
+
     });
-});
-</script>
+  </script>
 
 </body>
 </html>
