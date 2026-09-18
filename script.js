@@ -157,6 +157,8 @@ const roles = [
   "your sentence of the day is...",
   "WHAT THE FUCK IS A SEMICOLON",
   "hey guess what im selling out buy my ko-fi, give me money, throw money at me please",
+  "hey guess what im still selling out https://pxsl.dev/thanks/",
+  "i made a discord bot i guess..."
 ];
 
 let current = "";
