@@ -970,3 +970,154 @@
 .footer-links a:hover {
   color: var(--purple);
 }
+
+/* Analytics consent banner */
+
+.analytics-banner {
+  position: fixed;
+  left: 50%;
+  bottom: 24px;
+  transform: translate(-50%, 140%);
+  width: min(680px, calc(100% - 32px));
+  z-index: 9999;
+
+  background: rgba(25, 22, 42, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 18px;
+
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.45),
+    0 0 40px rgba(120, 90, 255, 0.08);
+
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  transition:
+    transform 0.5s cubic-bezier(.16, 1, .3, 1),
+    opacity 0.3s ease;
+
+  opacity: 0;
+}
+
+.analytics-banner.show {
+  transform: translate(-50%, 0);
+  opacity: 1;
+}
+
+.analytics-content {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 18px;
+}
+
+.analytics-icon {
+  flex: 0 0 42px;
+
+  width: 42px;
+  height: 42px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #b7a5ff;
+  background: rgba(130, 100, 255, 0.12);
+  border: 1px solid rgba(160, 130, 255, 0.15);
+  border-radius: 12px;
+}
+
+.analytics-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.analytics-text strong {
+  display: block;
+  margin-bottom: 4px;
+
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.analytics-text p {
+  margin: 0;
+
+  color: rgba(255, 255, 255, 0.62);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.analytics-actions {
+  display: flex;
+  flex-shrink: 0;
+  gap: 8px;
+}
+
+.analytics-btn {
+  border: 0;
+  border-radius: 10px;
+  padding: 9px 13px;
+
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 600;
+
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.analytics-btn:hover {
+  transform: translateY(-1px);
+}
+
+.analytics-btn.decline {
+  color: rgba(255, 255, 255, 0.65);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.analytics-btn.decline:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.analytics-btn.accept {
+  color: #fff;
+  background: #7357e8;
+}
+
+.analytics-btn.accept:hover {
+  background: #8268f2;
+}
+
+
+/* Mobile */
+
+@media (max-width: 600px) {
+  .analytics-content {
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .analytics-icon {
+    flex: 0 0 38px;
+    width: 38px;
+    height: 38px;
+  }
+
+  .analytics-text {
+    flex: 1;
+  }
+
+  .analytics-actions {
+    width: 100%;
+    margin-top: 2px;
+  }
+
+  .analytics-btn {
+    flex: 1;
+    padding: 10px;
+  }
+}

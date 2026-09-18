@@ -652,3 +652,29 @@ function goTo(url) {
     window.location.href = url;
   }, 450);
 }
+
+const analyticsBanner = document.getElementById("analyticsBanner");
+const analyticsAccept = document.getElementById("analyticsAccept");
+const analyticsDecline = document.getElementById("analyticsDecline");
+
+const analyticsConsent = localStorage.getItem("analytics-consent");
+
+if (!analyticsConsent) {
+  setTimeout(() => {
+    analyticsBanner.classList.add("show");
+  }, 800);
+}
+
+analyticsAccept.addEventListener("click", () => {
+  localStorage.setItem("analytics-consent", "accepted");
+
+  analyticsBanner.classList.remove("show");
+
+  enableAnalytics();
+});
+
+analyticsDecline.addEventListener("click", () => {
+  localStorage.setItem("analytics-consent", "declined");
+
+  analyticsBanner.classList.remove("show");
+});

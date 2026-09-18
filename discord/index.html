@@ -2,25 +2,559 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="refresh" content="0; url=https://discord.gg/YtQdrkxfg7">
-    <title>Redirecting...</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <script>
-        window.location.replace("https://discord.gg/YtQdrkxfg7");
-    </script>
+    <title>Redirecting... ~ pxsl.dev</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+
+            min-height: 100vh;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            padding: 20px;
+
+            background: #1e1b2f;
+            color: #fff;
+
+            font-family:
+                Inter,
+                system-ui,
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                sans-serif;
+        }
+
+
+        .redirect-card {
+            width: min(520px, 100%);
+
+            padding: 32px;
+
+            text-align: center;
+
+            background: rgba(35, 31, 55, 0.92);
+
+            border: 1px solid rgba(255, 255, 255, 0.1);
+
+            border-radius: 20px;
+
+            box-shadow:
+                0 20px 60px rgba(0, 0, 0, 0.4);
+
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+        }
+
+
+        .redirect-card h1 {
+            margin: 0 0 10px;
+
+            font-size: 24px;
+        }
+
+
+        .redirect-card p {
+            margin: 0;
+
+            color: rgba(255, 255, 255, 0.65);
+
+            line-height: 1.6;
+
+            font-size: 14px;
+        }
+
+
+        .discord-link {
+            display: inline-block;
+
+            margin-top: 20px;
+
+            color: #b7a5ff;
+        }
+
+
+        /* ================================
+           Analytics Consent Banner
+           ================================ */
+
+        .analytics-banner {
+            position: fixed;
+
+            left: 50%;
+            bottom: 24px;
+
+            transform: translate(-50%, 140%);
+
+            width: min(680px, calc(100% - 32px));
+
+            z-index: 9999;
+
+            background: rgba(25, 22, 42, 0.94);
+
+            border: 1px solid rgba(255, 255, 255, 0.1);
+
+            border-radius: 18px;
+
+            box-shadow:
+                0 20px 60px rgba(0, 0, 0, 0.45),
+                0 0 40px rgba(120, 90, 255, 0.08);
+
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+
+            opacity: 0;
+
+            transition:
+                transform 0.5s cubic-bezier(.16, 1, .3, 1),
+                opacity 0.3s ease;
+        }
+
+
+        .analytics-banner.show {
+            transform: translate(-50%, 0);
+
+            opacity: 1;
+        }
+
+
+        .analytics-content {
+            display: flex;
+
+            align-items: center;
+
+            gap: 16px;
+
+            padding: 18px;
+        }
+
+
+        .analytics-icon {
+            flex: 0 0 42px;
+
+            width: 42px;
+            height: 42px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: rgba(130, 100, 255, 0.12);
+
+            border: 1px solid rgba(160, 130, 255, 0.15);
+
+            border-radius: 12px;
+
+            font-size: 18px;
+        }
+
+
+        .analytics-text {
+            flex: 1;
+
+            min-width: 0;
+        }
+
+
+        .analytics-text strong {
+            display: block;
+
+            margin-bottom: 4px;
+
+            color: #fff;
+
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+
+        .analytics-text p {
+            margin: 0;
+
+            color: rgba(255, 255, 255, 0.62);
+
+            font-size: 12px;
+
+            line-height: 1.5;
+        }
+
+
+        .analytics-actions {
+            display: flex;
+
+            flex-shrink: 0;
+
+            gap: 8px;
+        }
+
+
+        .analytics-btn {
+            border: 0;
+
+            border-radius: 10px;
+
+            padding: 9px 13px;
+
+            font-family: inherit;
+
+            font-size: 12px;
+            font-weight: 600;
+
+            cursor: pointer;
+
+            transition:
+                background 0.2s ease,
+                transform 0.2s ease;
+        }
+
+
+        .analytics-btn:hover {
+            transform: translateY(-1px);
+        }
+
+
+        .analytics-btn.decline {
+            color: rgba(255, 255, 255, 0.65);
+
+            background: rgba(255, 255, 255, 0.06);
+        }
+
+
+        .analytics-btn.decline:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+
+        .analytics-btn.accept {
+            color: #fff;
+
+            background: #7357e8;
+        }
+
+
+        .analytics-btn.accept:hover {
+            background: #8268f2;
+        }
+
+
+        @media (max-width: 600px) {
+
+            .analytics-content {
+                align-items: flex-start;
+
+                flex-wrap: wrap;
+            }
+
+
+            .analytics-icon {
+                flex: 0 0 38px;
+
+                width: 38px;
+                height: 38px;
+            }
+
+
+            .analytics-text {
+                flex: 1;
+            }
+
+
+            .analytics-actions {
+                width: 100%;
+
+                margin-top: 2px;
+            }
+
+
+            .analytics-btn {
+                flex: 1;
+
+                padding: 10px;
+            }
+
+        }
+    </style>
 </head>
 
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-REEV1WS3ZB"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-REEV1WS3ZB');
-</script>
 
 <body>
-    <p>Redirecting...</p>
+
+
+    <div class="redirect-card">
+
+        <h1>Redirecting...</h1>
+
+        <p>
+            Taking you to Pxsl's Discord server.
+        </p>
+
+        <a
+            class="discord-link"
+            href="https://discord.gg/YtQdrkxfg7"
+        >
+            Continue to Discord
+        </a>
+
+    </div>
+
+
+    <!-- Analytics consent banner -->
+
+    <div
+        id="analyticsBanner"
+        class="analytics-banner"
+    >
+
+        <div class="analytics-content">
+
+
+            <div class="analytics-icon">
+                📊
+            </div>
+
+
+            <div class="analytics-text">
+
+                <strong>
+                    Can I use analytics?
+                </strong>
+
+                <p>
+                    I'd like to use Google Analytics to understand how
+                    people use pxsl.dev and improve the site. No Google
+                    Analytics tracking will be loaded unless you agree.
+                </p>
+
+            </div>
+
+
+            <div class="analytics-actions">
+
+                <button
+                    id="analyticsDecline"
+                    class="analytics-btn decline"
+                    type="button"
+                >
+                    No thanks
+                </button>
+
+
+                <button
+                    id="analyticsAccept"
+                    class="analytics-btn accept"
+                    type="button"
+                >
+                    I'm okay with it
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <script>
+
+        const DISCORD_URL =
+            "https://discord.gg/YtQdrkxfg7";
+
+
+        const analyticsBanner =
+            document.getElementById("analyticsBanner");
+
+
+        const analyticsAccept =
+            document.getElementById("analyticsAccept");
+
+
+        const analyticsDecline =
+            document.getElementById("analyticsDecline");
+
+
+        /*
+         * Redirect the visitor to Discord.
+         */
+
+        function redirectToDiscord() {
+            window.location.replace(DISCORD_URL);
+        }
+
+
+        /*
+         * Load Google Analytics only after
+         * explicit consent.
+         */
+
+        function enableAnalytics() {
+
+            if (
+                localStorage.getItem("analytics-consent") !== "accepted"
+            ) {
+                return;
+            }
+
+
+            /*
+             * Prevent Analytics from being loaded twice.
+             */
+
+            if (
+                document.querySelector(
+                    'script[src*="googletagmanager.com/gtag/js"]'
+                )
+            ) {
+                return;
+            }
+
+
+            const script =
+                document.createElement("script");
+
+
+            script.async = true;
+
+
+            script.src =
+                "https://www.googletagmanager.com/gtag/js?id=G-REEV1WS3ZB";
+
+
+            document.head.appendChild(script);
+
+
+            window.dataLayer =
+                window.dataLayer || [];
+
+
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+
+
+            window.gtag = gtag;
+
+
+            gtag("js", new Date());
+
+            gtag("config", "G-REEV1WS3ZB");
+
+        }
+
+
+        /*
+         * Check existing consent.
+         */
+
+        const consent =
+            localStorage.getItem("analytics-consent");
+
+
+        /*
+         * If they already accepted,
+         * record the visit and redirect.
+         */
+
+        if (consent === "accepted") {
+
+            enableAnalytics();
+
+            setTimeout(() => {
+                redirectToDiscord();
+            }, 100);
+
+        }
+
+
+        /*
+         * If they already declined,
+         * redirect without Analytics.
+         */
+
+        else if (consent === "declined") {
+
+            redirectToDiscord();
+
+        }
+
+
+        /*
+         * First-time visitor:
+         * show the banner and wait for their choice.
+         */
+
+        else {
+
+            setTimeout(() => {
+
+                analyticsBanner.classList.add("show");
+
+            }, 300);
+
+        }
+
+
+        /*
+         * User accepts Analytics.
+         */
+
+        analyticsAccept.addEventListener("click", () => {
+
+            localStorage.setItem(
+                "analytics-consent",
+                "accepted"
+            );
+
+
+            analyticsBanner.classList.remove("show");
+
+
+            enableAnalytics();
+
+
+            /*
+             * Give Analytics a tiny amount of time
+             * to initialise before leaving the page.
+             */
+
+            setTimeout(() => {
+
+                redirectToDiscord();
+
+            }, 150);
+
+        });
+
+
+        /*
+         * User declines Analytics.
+         */
+
+        analyticsDecline.addEventListener("click", () => {
+
+            localStorage.setItem(
+                "analytics-consent",
+                "declined"
+            );
+
+
+            analyticsBanner.classList.remove("show");
+
+
+            redirectToDiscord();
+
+        });
+
+    </script>
+
+
 </body>
 </html>
