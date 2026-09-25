@@ -1,852 +1,474 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>pxsl.dev ~ thanks</title>
+    <title>Redirecting... ~ pxsl.dev</title>
 
-  <meta
-    name="description"
-    content="Support Pxsl and help keep projects like Clanker and pxsl.dev alive."
-  />
+    <style>
+        * {
+            box-sizing: border-box;
+        }
 
-  <meta
-    name="keywords"
-    content="pxsl, pxsl.dev, support pxsl, donate pxsl, patreon, buy me a coffee"
-  />
+        body {
+            margin: 0;
+            min-height: 100vh;
 
-  <meta name="author" content="Pxsl" />
-  <meta name="robots" content="index, follow" />
+            display: flex;
+            align-items: center;
+            justify-content: center;
 
-  <link rel="canonical" href="https://pxsl.dev/thanks/" />
+            padding: 20px;
 
-  <link rel="icon" type="image/png" href="../assets/website/favicon.png" />
+            background: #1e1b2f;
+            color: #fff;
 
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="Thanks! ~ pxsl.dev" />
-  <meta
-    property="og:description"
-    content="Want to support the things I make? Here's how :)"
-  />
-  <meta property="og:url" content="https://pxsl.dev/thanks/" />
-  <meta property="og:image" content="https://pxsl.dev/assets/website/pfp.png" />
+            font-family:
+                Inter,
+                system-ui,
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                sans-serif;
+        }
 
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Thanks! ~ pxsl.dev" />
-  <meta
-    name="twitter:description"
-    content="Want to support the things I make? Here's how :)"
-  />
-  <meta
-    name="twitter:image"
-    content="https://pxsl.dev/assets/website/pfp.png"
-  />
+        .redirect-card {
+            width: min(520px, 100%);
+            padding: 32px;
 
-  <meta name="theme-color" content="#1e1b2f" />
+            text-align: center;
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+            background: rgba(35, 31, 55, 0.92);
 
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
-    rel="stylesheet"
-  />
+            border: 1px solid rgba(255, 255, 255, 0.1);
 
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-  />
+            border-radius: 20px;
 
-  <link rel="stylesheet" href="styles.css" />
+            box-shadow:
+                0 20px 60px rgba(0, 0, 0, 0.4);
 
-  <style>
-    /* Analytics consent banner */
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+        }
 
-    .analytics-banner {
-      position: fixed;
-      left: 50%;
-      bottom: 24px;
-      transform: translate(-50%, 140%);
-      width: min(680px, calc(100% - 32px));
-      z-index: 9999;
+        .redirect-card h1 {
+            margin: 0 0 10px;
+            font-size: 24px;
+        }
 
-      background: rgba(25, 22, 42, 0.92);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 18px;
+        .redirect-card p {
+            margin: 0;
 
-      box-shadow:
-        0 20px 60px rgba(0, 0, 0, 0.45),
-        0 0 40px rgba(120, 90, 255, 0.08);
+            color: rgba(255, 255, 255, 0.65);
 
-      backdrop-filter: blur(18px);
-      -webkit-backdrop-filter: blur(18px);
+            line-height: 1.6;
+            font-size: 14px;
+        }
 
-      transition:
-        transform 0.5s cubic-bezier(.16, 1, .3, 1),
-        opacity 0.3s ease;
+        .discord-link {
+            display: inline-block;
 
-      opacity: 0;
-    }
+            margin-top: 20px;
 
-    .analytics-banner.show {
-      transform: translate(-50%, 0);
-      opacity: 1;
-    }
+            color: #b7a5ff;
+        }
 
-    .analytics-content {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      padding: 18px;
-    }
+        /* ================================
+           Analytics Consent Banner
+           ================================ */
 
-    .analytics-icon {
-      flex: 0 0 42px;
+        .analytics-banner {
+            position: fixed;
 
-      width: 42px;
-      height: 42px;
+            left: 50%;
+            bottom: 24px;
 
-      display: flex;
-      align-items: center;
-      justify-content: center;
+            transform: translate(-50%, 140%);
 
-      color: #b7a5ff;
-      background: rgba(130, 100, 255, 0.12);
-      border: 1px solid rgba(160, 130, 255, 0.15);
-      border-radius: 12px;
+            width: min(680px, calc(100% - 32px));
 
-      font-size: 18px;
-    }
+            z-index: 9999;
 
-    .analytics-text {
-      flex: 1;
-      min-width: 0;
-    }
+            background: rgba(25, 22, 42, 0.94);
 
-    .analytics-text strong {
-      display: block;
-      margin-bottom: 4px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
 
-      color: #fff;
-      font-size: 14px;
-      font-weight: 600;
-    }
+            border-radius: 18px;
 
-    .analytics-text p {
-      margin: 0;
+            box-shadow:
+                0 20px 60px rgba(0, 0, 0, 0.45),
+                0 0 40px rgba(120, 90, 255, 0.08);
 
-      color: rgba(255, 255, 255, 0.62);
-      font-size: 12px;
-      line-height: 1.5;
-    }
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
 
-    .analytics-actions {
-      display: flex;
-      flex-shrink: 0;
-      gap: 8px;
-    }
+            opacity: 0;
 
-    .analytics-btn {
-      border: 0;
-      border-radius: 10px;
-      padding: 9px 13px;
+            transition:
+                transform 0.5s cubic-bezier(.16, 1, .3, 1),
+                opacity 0.3s ease;
+        }
 
-      font-family: inherit;
-      font-size: 12px;
-      font-weight: 600;
+        .analytics-banner.show {
+            transform: translate(-50%, 0);
+            opacity: 1;
+        }
 
-      cursor: pointer;
+        .analytics-content {
+            display: flex;
 
-      transition:
-        background 0.2s ease,
-        transform 0.2s ease;
-    }
+            align-items: center;
 
-    .analytics-btn:hover {
-      transform: translateY(-1px);
-    }
+            gap: 16px;
 
-    .analytics-btn.decline {
-      color: rgba(255, 255, 255, 0.65);
-      background: rgba(255, 255, 255, 0.06);
-    }
+            padding: 18px;
+        }
 
-    .analytics-btn.decline:hover {
-      background: rgba(255, 255, 255, 0.1);
-    }
+        .analytics-icon {
+            flex: 0 0 42px;
 
-    .analytics-btn.accept {
-      color: #fff;
-      background: #7357e8;
-    }
+            width: 42px;
+            height: 42px;
 
-    .analytics-btn.accept:hover {
-      background: #8268f2;
-    }
+            display: flex;
+            align-items: center;
+            justify-content: center;
 
-    @media (max-width: 600px) {
-      .analytics-content {
-        align-items: flex-start;
-        flex-wrap: wrap;
-      }
+            background: rgba(130, 100, 255, 0.12);
 
-      .analytics-icon {
-        flex: 0 0 38px;
-        width: 38px;
-        height: 38px;
-      }
+            border: 1px solid rgba(160, 130, 255, 0.15);
 
-      .analytics-text {
-        flex: 1;
-      }
+            border-radius: 12px;
 
-      .analytics-actions {
-        width: 100%;
-        margin-top: 2px;
-      }
+            font-size: 18px;
+        }
 
-      .analytics-btn {
-        flex: 1;
-        padding: 10px;
-      }
-    }
-  </style>
+        .analytics-text {
+            flex: 1;
+            min-width: 0;
+        }
 
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Pxsl",
-    "url": "https://pxsl.dev",
-    "sameAs": [
-      "https://github.com/pxsldev",
-      "https://youtube.com/@pxsldev1",
-      "https://tiktok.com/@pxsldev1",
-      "https://pxsldev1.itch.io"
-    ],
-    "description": "Developer behind Clanker, Crumb, terminal tools, experiments, and web projects."
-  }
-  </script>
+        .analytics-text strong {
+            display: block;
+
+            margin-bottom: 4px;
+
+            color: #fff;
+
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .analytics-text p {
+            margin: 0;
+
+            color: rgba(255, 255, 255, 0.62);
+
+            font-size: 12px;
+
+            line-height: 1.5;
+        }
+
+        .analytics-actions {
+            display: flex;
+
+            flex-shrink: 0;
+
+            gap: 8px;
+        }
+
+        .analytics-btn {
+            border: 0;
+
+            border-radius: 10px;
+
+            padding: 9px 13px;
+
+            font-family: inherit;
+
+            font-size: 12px;
+            font-weight: 600;
+
+            cursor: pointer;
+
+            transition:
+                background 0.2s ease,
+                transform 0.2s ease;
+        }
+
+        .analytics-btn:hover {
+            transform: translateY(-1px);
+        }
+
+        .analytics-btn.decline {
+            color: rgba(255, 255, 255, 0.65);
+
+            background: rgba(255, 255, 255, 0.06);
+        }
+
+        .analytics-btn.decline:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .analytics-btn.accept {
+            color: #fff;
+
+            background: #7357e8;
+        }
+
+        .analytics-btn.accept:hover {
+            background: #8268f2;
+        }
+
+        @media (max-width: 600px) {
+            .analytics-content {
+                align-items: flex-start;
+                flex-wrap: wrap;
+            }
+
+            .analytics-icon {
+                flex: 0 0 38px;
+
+                width: 38px;
+                height: 38px;
+            }
+
+            .analytics-text {
+                flex: 1;
+            }
+
+            .analytics-actions {
+                width: 100%;
+                margin-top: 2px;
+            }
+
+            .analytics-btn {
+                flex: 1;
+                padding: 10px;
+            }
+        }
+    </style>
 </head>
-
 
 <body>
 
-  <div class="modal-overlay" id="booster-modal">
+    <div class="redirect-card">
 
-    <div class="booster-modal">
-
-      <button class="modal-close" id="close-booster-modal">
-        <i class="fa-solid fa-xmark"></i>
-      </button>
-
-      <div class="modal-header">
-
-        <div class="modal-icon">
-          <i class="fa-solid fa-rocket"></i>
-        </div>
-
-        <div>
-          <h2>Server Booster Perks</h2>
-          <p>Boost the server. Get cool shit. Simple.</p>
-        </div>
-
-      </div>
-
-
-      <div class="perk-section">
-
-        <h3>
-          <i class="fa-brands fa-discord"></i>
-          Discord
-        </h3>
-
-        <div class="perk-list">
-
-          <div class="perk">
-            <span>🟣</span>
-            <p>Special <strong>Server Booster</strong> role</p>
-          </div>
-
-          <div class="perk">
-            <span>💬</span>
-            <p>Access to <strong>Booster-only general channel</strong></p>
-          </div>
-
-          <div class="perk">
-            <span>📢</span>
-            <p>Access to <strong>Booster-only announcements</strong></p>
-          </div>
-
-          <div class="perk">
-            <span>🔊</span>
-            <p>Access to <strong>Booster-only VC</strong></p>
-          </div>
-
-          <div class="perk">
-            <span>🧪</span>
-            <p>Access to the <strong>Clanker Beta Server</strong></p>
-          </div>
-
-          <div class="perk">
-            <span>🗳️</span>
-            <p>Access to exclusive polls</p>
-          </div>
-
-          <div class="perk">
-            <span>💡</span>
-            <p><strong>Priority consideration</strong> for suggestions</p>
-          </div>
-
-          <div class="perk">
-            <span>👀</span>
-            <p>Early announcements about upcoming features</p>
-          </div>
-
-          <div class="perk">
-            <span>🛠️</span>
-            <p>Behind-the-scenes development updates</p>
-          </div>
-
-          <div class="perk">
-            <span>🎨</span>
-            <p>Set your name colour in discord!</p>
-          </div>
-
-        </div>
-      </div>
-
-
-      <div class="perk-section">
-
-        <h3>
-          <i class="fa-solid fa-robot"></i>
-          Clanker
-        </h3>
-
-        <div class="perk-list">
-
-          <div class="perk">
-            <span>🎨</span>
-            <p>
-              Access to <strong>Clanker themes</strong>
-              <small>(coming soon)</small>
-            </p>
-          </div>
-
-          <div class="perk">
-            <span>🧪</span>
-            <p>Early access to experimental features</p>
-          </div>
-
-          <div class="perk">
-            <span>🏷️</span>
-            <p>Special Booster badge/title in Clanker</p>
-          </div>
-
-          <div class="perk">
-            <span>🏆</span>
-            <p>Special recognition in Clanker's credits</p>
-          </div>
-
-          <div class="perk">
-            <span>🌐</span>
-            <p>Special recognition on the Clanker website</p>
-          </div>
-
-        </div>
-      </div>
-
-
-      <div class="perk-section">
-
-        <h3>
-          <i class="fa-solid fa-code"></i>
-          Development
-        </h3>
-
-        <div class="perk-list">
-
-          <div class="perk">
-            <span>💭</span>
-            <p>Suggestions given priority consideration</p>
-          </div>
-
-          <div class="perk">
-            <span>🧠</span>
-            <p>Give feedback on upcoming features</p>
-          </div>
-
-          <div class="perk">
-            <span>🗣️</span>
-            <p>Give your opinion on major Clanker changes</p>
-          </div>
-
-          <div class="perk">
-            <span>🔬</span>
-            <p>Help test new/experimental features</p>
-          </div>
-
-          <div class="perk">
-            <span>📋</span>
-            <p>Potentially be consulted before major changes or additions</p>
-          </div>
-
-        </div>
-      </div>
-
-
-      <div class="perk-section">
-
-        <h3>
-          <i class="fa-solid fa-users"></i>
-          Community
-        </h3>
-
-        <div class="perk-list">
-
-          <div class="perk">
-            <span>🏆</span>
-            <p>Booster-only events</p>
-          </div>
-
-          <div class="perk">
-            <span>🎁</span>
-            <p>Occasional Booster-exclusive rewards</p>
-          </div>
-
-          <div class="perk">
-            <span>🎉</span>
-            <p>Special recognition when Clanker reaches major milestones</p>
-          </div>
-
-          <div class="perk">
-            <span>👑</span>
-            <p><strong>THE UPMOST OF BRAGGING RIGHTS™</strong></p>
-          </div>
-
-        </div>
-      </div>
-
-
-      <a
-        class="booster-join"
-        href="https://pxsl.dev/discord/"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <i class="fa-brands fa-discord"></i>
-        Boost the Discord
-      </a>
-
-    </div>
-  </div>
-
-
-  <div class="bg">
-
-    <div class="grid"></div>
-
-    <div class="orb one"></div>
-
-    <div class="orb two"></div>
-
-  </div>
-
-
-  <header class="top">
-
-    <div class="emoji">💜</div>
-
-    <h1>Thanks :)</h1>
-
-    <p>
-      Like something I've made?
-      Want to support what I do?
-      You're in the right place.
-    </p>
-
-  </header>
-
-
-  <main class="container">
-
-    <section class="intro">
-
-      <h2>Support my work</h2>
-
-      <p>
-        I make things like <strong>Clanker</strong>, websites, games,
-        random experiments, and a frankly ridiculous amount of code.
-      </p>
-
-      <p>
-        Everything I make is built because I enjoy making it.
-        If you've found something useful, entertaining, or just cool,
-        supporting me helps me keep doing it.
-      </p>
-
-    </section>
-
-
-    <section class="support-grid">
-
-      <a
-        class="support-card featured"
-        href="https://ko-fi.com/pxsldev/"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-
-        <div class="icon">
-          <i class="fa-solid fa-mug-hot"></i>
-        </div>
-
-        <div class="support-content">
-
-          <div class="support-title">
-            <h2>Ko-Fi</h2>
-            <span class="badge">One-Time</span>
-          </div>
-
-          <p>
-            Support me with a one-time donation or monthly support,
-            helping fund future projects, development, and server costs.
-          </p>
-
-          <span class="support-link">
-            throw money at me... plz
-            <i class="fa-solid fa-arrow-up-right-from-square"></i>
-          </span>
-
-        </div>
-
-      </a>
-
-
-      <button class="support-card" id="booster-card" type="button">
-
-        <div class="icon">
-          <i class="fa-brands fa-discord"></i>
-        </div>
-
-        <div class="support-content">
-
-          <div class="support-title">
-            <h2>Boost the Discord</h2>
-            <span class="badge">Community</span>
-          </div>
-
-          <p>
-            Support the community by boosting the Discord server.
-            You'll also get access to a bunch of exclusive Server Booster perks!
-          </p>
-
-          <span class="support-link">
-            Click to see the Server Booster perks
-            <i class="fa-solid fa-arrow-right"></i>
-          </span>
-
-        </div>
-
-      </button>
-
-    </section>
-
-
-    <section class="thank-you">
-
-      <div class="thank-you-icon">
-        <i class="fa-solid fa-heart"></i>
-      </div>
-
-      <h2>You don't have to support me financially.</h2>
-
-      <p>
-        Seriously.
-      </p>
-
-      <p>
-        Using my projects, sharing them with your friends,
-        reporting bugs, suggesting ideas, contributing code,
-        or even just telling me that you enjoyed something I've made
-        already helps more than you might think.
-      </p>
-
-      <p>
-        If you do want to support me financially,
-        <strong>donating through Ko-Fi is the best way to support me directly.</strong>
-      </p>
-
-      <p class="small">
-        And if you'd rather boost the Discord instead, that's hugely appreciated too.
-        It helps support the community while getting you some cool perks. 💜
-      </p>
-
-    </section>
-
-
-    <section class="footer-note">
-
-      <span>
-        Built with way too much caffeine by Pxsl.
-      </span>
-
-    </section>
-
-  </main>
-
-
-  <a class="back-btn" href="../">
-    <span>← back</span>
-  </a>
-
-
-  <!-- Analytics consent banner -->
-
-  <div id="analyticsBanner" class="analytics-banner">
-
-    <div class="analytics-content">
-
-      <div class="analytics-icon">
-        <i class="fa-solid fa-chart-simple"></i>
-      </div>
-
-      <div class="analytics-text">
-
-        <strong>Can I use analytics?</strong>
+        <h1>Redirecting...</h1>
 
         <p>
-          I'd like to use Google Analytics to understand how people use
-          pxsl.dev and improve the site. No analytics will be loaded unless
-          you agree.
+            Taking you to Pxsl's Ko-fi page.
         </p>
 
-      </div>
-
-      <div class="analytics-actions">
-
-        <button
-          id="analyticsDecline"
-          class="analytics-btn decline"
-          type="button"
+        <a
+            class="discord-link"
+            href="https://ko-fi.com/pxsldev/"
         >
-          No thanks
-        </button>
-
-        <button
-          id="analyticsAccept"
-          class="analytics-btn accept"
-          type="button"
-        >
-          I'm okay with it
-        </button>
-
-      </div>
+            Continue to Ko-fi
+        </a>
 
     </div>
 
-  </div>
 
+    <!-- Analytics consent banner -->
 
-  <div id="transition"></div>
+    <div
+        id="analyticsBanner"
+        class="analytics-banner"
+    >
 
+        <div class="analytics-content">
 
-  <script src="script.js"></script>
+            <div class="analytics-icon">
+                📊
+            </div>
 
+            <div class="analytics-text">
 
-  <script>
-    /*
-     * Google Analytics
-     *
-     * Analytics is ONLY loaded when the visitor has
-     * explicitly accepted it.
-     */
+                <strong>
+                    Can I use analytics?
+                </strong>
 
-    function enableAnalytics() {
+                <p>
+                    I'd like to use Google Analytics to understand how
+                    people use pxsl.dev and improve the site. No Google
+                    Analytics tracking will be loaded unless you agree.
+                </p>
 
-      if (
-        localStorage.getItem("analytics-consent") !== "accepted"
-      ) {
-        return;
-      }
+            </div>
 
-      // Don't load Google Analytics twice.
-      if (
-        document.querySelector(
-          'script[src*="googletagmanager.com/gtag/js"]'
-        )
-      ) {
-        return;
-      }
+            <div class="analytics-actions">
 
-      const script = document.createElement("script");
+                <button
+                    id="analyticsDecline"
+                    class="analytics-btn decline"
+                    type="button"
+                >
+                    No thanks
+                </button>
 
-      script.async = true;
+                <button
+                    id="analyticsAccept"
+                    class="analytics-btn accept"
+                    type="button"
+                >
+                    I'm okay with it
+                </button>
 
-      script.src =
-        "https://www.googletagmanager.com/gtag/js?id=G-REEV1WS3ZB";
+            </div>
 
-      document.head.appendChild(script);
+        </div>
 
+    </div>
 
-      window.dataLayer = window.dataLayer || [];
 
-      function gtag() {
-        dataLayer.push(arguments);
-      }
+    <script>
 
-      window.gtag = gtag;
+        const KOFI_URL =
+            "https://ko-fi.com/pxsldev/";
 
 
-      gtag("js", new Date());
+        const analyticsBanner =
+            document.getElementById("analyticsBanner");
 
-      gtag("config", "G-REEV1WS3ZB");
-    }
 
+        const analyticsAccept =
+            document.getElementById("analyticsAccept");
 
-    /*
-     * Analytics consent
-     */
 
-    const analyticsBanner =
-      document.getElementById("analyticsBanner");
+        const analyticsDecline =
+            document.getElementById("analyticsDecline");
 
-    const analyticsAccept =
-      document.getElementById("analyticsAccept");
 
-    const analyticsDecline =
-      document.getElementById("analyticsDecline");
+        function redirectToKofi() {
+            window.location.replace(KOFI_URL);
+        }
 
 
-    const analyticsConsent =
-      localStorage.getItem("analytics-consent");
+        function enableAnalytics() {
 
+            if (
+                localStorage.getItem("analytics-consent") !== "accepted"
+            ) {
+                return;
+            }
 
-    // Already accepted on another pxsl.dev page.
-    if (analyticsConsent === "accepted") {
 
-      enableAnalytics();
+            if (
+                document.querySelector(
+                    'script[src*="googletagmanager.com/gtag/js"]'
+                )
+            ) {
+                return;
+            }
 
-    }
 
+            const script =
+                document.createElement("script");
 
-    // No choice has been made yet.
-    if (!analyticsConsent) {
 
-      setTimeout(() => {
+            script.async = true;
 
-        analyticsBanner.classList.add("show");
 
-      }, 800);
+            script.src =
+                "https://www.googletagmanager.com/gtag/js?id=G-REEV1WS3ZB";
 
-    }
 
+            document.head.appendChild(script);
 
-    // Visitor accepts analytics.
-    analyticsAccept.addEventListener("click", () => {
 
-      localStorage.setItem(
-        "analytics-consent",
-        "accepted"
-      );
+            window.dataLayer =
+                window.dataLayer || [];
 
-      analyticsBanner.classList.remove("show");
 
-      enableAnalytics();
+            function gtag() {
+                dataLayer.push(arguments);
+            }
 
-    });
 
+            window.gtag = gtag;
 
-    // Visitor declines analytics.
-    analyticsDecline.addEventListener("click", () => {
 
-      localStorage.setItem(
-        "analytics-consent",
-        "declined"
-      );
+            gtag("js", new Date());
 
-      analyticsBanner.classList.remove("show");
-
-    });
-  </script>
-
-
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-
-      const boosterCard =
-        document.getElementById("booster-card");
-
-      const boosterModal =
-        document.getElementById("booster-modal");
-
-      const closeBoosterModal =
-        document.getElementById("close-booster-modal");
-
-
-      if (
-        !boosterCard ||
-        !boosterModal ||
-        !closeBoosterModal
-      ) {
-        console.error(
-          "Booster modal elements could not be found."
-        );
-
-        return;
-      }
-
-
-      boosterCard.addEventListener("click", () => {
-
-        boosterModal.classList.add("active");
-
-        document.body.style.overflow = "hidden";
-
-      });
-
-
-      closeBoosterModal.addEventListener("click", () => {
-
-        boosterModal.classList.remove("active");
-
-        document.body.style.overflow = "";
-
-      });
-
-
-      boosterModal.addEventListener("click", (event) => {
-
-        if (event.target === boosterModal) {
-
-          boosterModal.classList.remove("active");
-
-          document.body.style.overflow = "";
+            gtag("config", "G-REEV1WS3ZB");
 
         }
 
-      });
+
+        const consent =
+            localStorage.getItem("analytics-consent");
 
 
-      document.addEventListener("keydown", (event) => {
+        if (consent === "accepted") {
 
-        if (
-          event.key === "Escape" &&
-          boosterModal.classList.contains("active")
-        ) {
+            enableAnalytics();
 
-          boosterModal.classList.remove("active");
-
-          document.body.style.overflow = "";
+            setTimeout(() => {
+                redirectToKofi();
+            }, 100);
 
         }
 
-      });
 
-    });
-  </script>
+        else if (consent === "declined") {
+
+            redirectToKofi();
+
+        }
+
+
+        else {
+
+            setTimeout(() => {
+
+                analyticsBanner.classList.add("show");
+
+            }, 300);
+
+        }
+
+
+        analyticsAccept.addEventListener("click", () => {
+
+            localStorage.setItem(
+                "analytics-consent",
+                "accepted"
+            );
+
+
+            analyticsBanner.classList.remove("show");
+
+
+            enableAnalytics();
+
+
+            setTimeout(() => {
+
+                redirectToKofi();
+
+            }, 150);
+
+        });
+
+
+        analyticsDecline.addEventListener("click", () => {
+
+            localStorage.setItem(
+                "analytics-consent",
+                "declined"
+            );
+
+
+            analyticsBanner.classList.remove("show");
+
+
+            redirectToKofi();
+
+        });
+
+    </script>
 
 </body>
 </html>

@@ -431,12 +431,6 @@ musicToggle.addEventListener("click", () => {
 
 const linksData = [
   {
-    icon: "fa-solid fa-heart",
-    title: "Support Me :)",
-    sub: "thank you for supporting me <3",
-    url: "https://pxsl.dev/thanks/"
-  },
-  {
     icon: "fa-brands fa-discord",
     title: "Discord",
     sub: "@pxsldev1",
